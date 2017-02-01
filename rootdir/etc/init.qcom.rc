@@ -648,11 +648,11 @@ service ipacm /system/bin/ipacm
     group net_admin inet
     writepid /dev/cpuset/system-background/tasks
 
-service qti /system/vendor/bin/qti
-    class main
-    user radio
-    group radio qcom_diag usb
-    writepid /dev/cpuset/system-background/tasks
+#service qti /system/vendor/bin/qti
+#    class main
+#    user radio
+#    group radio qcom_diag usb
+#    writepid /dev/cpuset/system-background/tasks
 
 service sensors /system/bin/sensors.qcom
     class core
