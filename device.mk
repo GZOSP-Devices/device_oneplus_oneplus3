@@ -239,6 +239,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl
 
+# HIDL
+PRODUCT_PACKAGES += \
+    android.hidl.manager@1.0-java
+
 # IPv6
 PRODUCT_PACKAGES += \
     ebtables \
