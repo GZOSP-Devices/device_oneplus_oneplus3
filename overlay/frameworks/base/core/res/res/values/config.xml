@@ -442,4 +442,7 @@
     <!-- Dash Charging -->
     <bool name="config_hasDashCharger">true</bool>
 
+    <!-- Specifies whether to decouple the auto-suspend state of the device from the display on/off state. -->
+    <bool name="config_powerDecoupleAutoSuspendModeFromDisplay">true</bool>
+
 </resources>
