@@ -356,6 +356,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine.conf:system/etc/thermal-engine.conf
 
+# VNDK-SP:
+PRODUCT_PACKAGES += \
+    vndk-sp
+
 # VR
 PRODUCT_PACKAGES += \
     vr.msm8996
