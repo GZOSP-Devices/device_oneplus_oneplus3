@@ -230,6 +230,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/manifest.xml:system/vendor/manifest.xml
 
+DEVICE_MATRIX_FILE := $(LOCAL_PATH)/compatibility_matrix.xml
+
 # IPv6
 PRODUCT_PACKAGES += \
     ebtables \
