@@ -113,7 +113,7 @@
     </hal>
     <hal format="hidl">
         <name>android.hardware.wifi</name>
-        <transport arch="32+64">passthrough</transport>
+        <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
             <name>IWifi</name>
@@ -122,7 +122,7 @@
     </hal>
     <hal format="hidl">
         <name>android.hardware.wifi.supplicant</name>
-        <transport arch="32+64">passthrough</transport>
+        <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
             <name>ISupplicant</name>
