@@ -61,4 +61,7 @@
          policy/src/com/android/internal/policy/impl/PhoneWindowManager.java
     <integer name="config_longPressOnAppSwitchBehavior">1</integer> -->
 
+    <!-- doze always on -->
+    <bool name="config_enableDozeAlwaysOn">true</bool>
+
 </resources>
