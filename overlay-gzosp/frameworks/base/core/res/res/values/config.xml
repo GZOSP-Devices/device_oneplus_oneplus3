@@ -67,4 +67,8 @@
     <!-- Whether notify fingerprint client of successful cancelled authentication -->
     <bool name="config_notifyClientOnFingerprintCancelSuccess">true</bool>
 
+    <!-- Default value for proximity check on screen wake -->
+    <bool name="config_proximityCheckOnWake">true</bool>
+    <bool name="config_proximityCheckOnWakeEnabledByDefault">true</bool>
+
 </resources>
