@@ -131,6 +131,14 @@ BOARD_USES_QCNE := true
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
 
+# Dex
+ifeq ($(HOST_OS),linux)
+  ifneq ($(TARGET_BUILD_VARIANT),eng)
+    WITH_DEXPREOPT ?= true
+  endif
+endif
+WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY ?= true
+
 # Display
 BOARD_USES_ADRENO := true
 TARGET_CONTINUOUS_SPLASH_ENABLED := true
@@ -148,15 +156,6 @@ SF_VSYNC_EVENT_PHASE_OFFSET_NS := 6000000
 TARGET_USES_HWC2 := true
 TARGET_USES_GRALLOC1 := true
 TARGET_USES_QCOM_DISPLAY_BSP := true
-
-# Enable dexpreopt to speed boot time
-ifeq ($(HOST_OS),linux)
-  ifeq ($(call match-word-in-list,$(TARGET_BUILD_VARIANT),user),true)
-    ifeq ($(WITH_DEXPREOPT),)
-      WITH_DEXPREOPT := true
-    endif
-  endif
-endif
 
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(PLATFORM_PATH)/config.fs
