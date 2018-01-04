@@ -31,8 +31,8 @@
 /dev/block/bootdevice/by-name/system       /system         ext4    ro,barrier=1                                                    wait,verify
 /dev/block/bootdevice/by-name/cache        /cache          f2fs    noatime,nosuid,nodev,inline_xattr,flush_merge,data_flush        wait,check
 /dev/block/bootdevice/by-name/cache        /cache          ext4    noatime,nosuid,nodev,barrier=1,data=ordered                     wait,check
-/dev/block/bootdevice/by-name/userdata     /data           f2fs    noatime,nosuid,nodev,inline_xattr,data_flush                    wait,check,encryptable=footer
-/dev/block/bootdevice/by-name/userdata     /data           ext4    noatime,nosuid,nodev,barrier=1,data=ordered,noauto_da_alloc     wait,check,encryptable=footer
+/dev/block/bootdevice/by-name/userdata     /data           f2fs    noatime,nosuid,nodev,inline_xattr,data_flush                    wait,check,encryptable=footer,length=-16384
+/dev/block/bootdevice/by-name/userdata     /data           ext4    noatime,nosuid,nodev,barrier=1,data=ordered,noauto_da_alloc     wait,check,encryptable=footer,length=-16384
 /dev/block/bootdevice/by-name/boot         /boot           emmc    defaults                                                        defaults
 /dev/block/bootdevice/by-name/recovery     /recovery       emmc    defaults                                                        defaults
 /dev/block/bootdevice/by-name/misc         /misc           emmc    defaults                                                        defaults
