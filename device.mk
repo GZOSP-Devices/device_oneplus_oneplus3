@@ -288,6 +288,10 @@ PRODUCT_PACKAGES += \
     android.hidl.manager@1.0 \
     android.hidl.manager@1.0-java
 
+# IMS
+PRODUCT_PACKAGES += \
+    ims-ext-common
+
 # IPv6
 PRODUCT_PACKAGES += \
     ebtables \
