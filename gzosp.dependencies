@@ -10,7 +10,7 @@
     "branch": "8.1"
   },
   {
-    "repository": "BigTopKrazies/vendor_oneplus",
+    "repository": "BigTopKrazies/proprietary_vendor_oneplus",
     "target_path": "vendor/oneplus",
     "branch": "8.1"
   }
