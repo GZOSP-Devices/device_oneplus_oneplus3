@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.lineageos.pocketmode;
+package com.cyanogenmod.pocketmode;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;

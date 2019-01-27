@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.lineageos.pocketmode"
+    package="com.cyanogenmod.pocketmode"
     android:versionCode="1"
-    android:versionName="1.1"
+    android:versionName="1.0"
     android:sharedUserId="android.uid.system">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <uses-sdk
-        android:minSdkVersion="27"
-        android:targetSdkVersion="27"/>
+        android:minSdkVersion="21"
+        android:targetSdkVersion="21"/>
 
     <application
         android:label="OneplusPocketMode"
         android:persistent="true">
 
-        <receiver android:name="org.lineageos.pocketmode.BootCompletedReceiver">
+        <receiver android:name="com.cyanogenmod.pocketmode.BootCompletedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
 
-        <service android:name="org.lineageos.pocketmode.PocketModeService"
+        <service android:name="com.cyanogenmod.pocketmode.PocketModeService"
                  android:permission="OneplusPocketModeService">
         </service>
 
