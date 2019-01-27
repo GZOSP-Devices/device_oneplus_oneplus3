@@ -14,4 +14,4 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_oneplus3.mk
+    $(LOCAL_DIR)/validus_oneplus3.mk
