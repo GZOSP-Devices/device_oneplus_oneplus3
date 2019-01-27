@@ -1,0 +1,5 @@
+-keep public class com.slim.device.KeyHandler
+
+-keepclassmembers public class com.slim.device.KeyHandler {
+    *;
+}

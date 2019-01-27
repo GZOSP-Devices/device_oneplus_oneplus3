@@ -411,6 +411,14 @@
     <!-- If true, the display will be shifted around in ambient mode. -->
     <bool name="config_enableBurnInProtection">true</bool>
 
+    <!-- The list absolute paths of jar/apk files containing the device specific handlers,
+         delimited by File.pathSeparator, which defaults to ":" on Android -->
+    <string name="config_deviceKeyHandlerLib" translatable="false">/system/app/DeviceHandler/DeviceHandler.apk</string>
+
+    <!-- Full qualified name of the class that implements
+         com.android.internal.os.DeviceKeyHandler interface. -->
+    <string name="config_deviceKeyHandlerClass" translatable="false">com.slim.device.KeyHandler</string>
+
     <!-- Whether navigation bar can be disabled (for devices with hardware keys) -->
     <bool name="config_canDisableNavigationBar">true</bool>
 

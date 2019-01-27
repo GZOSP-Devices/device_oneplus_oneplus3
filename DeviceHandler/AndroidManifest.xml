@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          android:sharedUserId="android.uid.system"
+          package="com.slim.device"
+          android:versionCode="1"
+          android:versionName="1" >
+
+    <uses-permission android:name="android.permission.INJECT_EVENTS"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-sdk
+            android:minSdkVersion="18"
+            android:targetSdkVersion="19" />
+
+    <application
+            android:icon="@android:drawable/sym_def_app_icon"
+            android:label="DeviceHandler"
+            >
+
+        <!-- stub to ensure its loaded - DO NOT REMOVE -->
+        <activity android:name=".KeyHandler" />
+
+        <activity
+            android:name=".settings.ScreenOffGestureSettings"
+            android:label="@string/screen_off_gesture_title"
+            android:theme="@style/DeviceHandlerTheme">
+          <intent-filter>
+                <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
+          </intent-filter>
+          <meta-data
+                android:name="com.android.settings.icon"
+                android:resource="@drawable/ic_settings_gestures" />
+          <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.homepage" />
+        </activity>
+
+        <activity
+            android:name=".settings.SliderSettings"
+            android:theme="@style/DeviceHandlerTheme"
+            android:label="@string/notification_slider">
+            <intent-filter>
+                <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
+            </intent-filter>
+            <meta-data
+                android:name="com.android.settings.icon"
+                android:resource="@drawable/ic_settings_additional_buttons" />
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.homepage" />
+        </activity>
+
+        <receiver android:name=".BootReceiver" >
+          <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+          </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>
