@@ -184,12 +184,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.vc_call_vol_steps=7
 
 # ANT+
-#PRODUCT_PACKAGES += \
-   # AntHalService \
-    #com.dsi.ant.antradio_library
+PRODUCT_PACKAGES += \
+    AntHalService \
+    com.dsi.ant.antradio_library
 
-#PRODUCT_COPY_FILES += \
-    #external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.dsi.ant.antradio_library.xml
+PRODUCT_COPY_FILES += \
+    external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.dsi.ant.antradio_library.xml
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
