@@ -250,4 +250,8 @@ persist.data.iwlan.ipsec.ap=1
 persist.sys.cust.lte_config=true
 persist.radio.volte.dan_support=true
 
+# UI
+PRODUCT_PROPERTY_OVERRIDES += \
+sys.use_fifo_ui
+
 #The End
