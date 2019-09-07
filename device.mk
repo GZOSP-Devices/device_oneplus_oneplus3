@@ -344,7 +344,7 @@ PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
 
 # NFC
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     NQNfcNci \
     libnqnfc-nci \
     libnqnfc_nci_jni \
