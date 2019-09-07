@@ -23,6 +23,7 @@
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
 
+#undef PROPERTY_VALUE_MAX
 #include <cutils/properties.h>
 
 static inline const char* BtmGetDefaultName()
@@ -42,7 +43,6 @@ static inline const char* BtmGetDefaultName()
 
     return "";
 }
-#undef PROPERTY_VALUE_MAX
 
 #define BTM_DEF_LOCAL_NAME BtmGetDefaultName()
 #define BLUETOOTH_QTI_SW TRUE
