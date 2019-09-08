@@ -23,8 +23,9 @@
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
 
-#undef PROPERTY_VALUE_MAX
-#include <cutils/properties.h>
+#include <stdint.h>
+
+int32_t property_get_int32(const char *key, int32_t default_value);
 
 static inline const char* BtmGetDefaultName()
 {
