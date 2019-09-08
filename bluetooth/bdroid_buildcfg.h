@@ -25,7 +25,13 @@
 
 #include <stdint.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 int32_t property_get_int32(const char *key, int32_t default_value);
+#ifdef __cplusplus
+}
+#endif
 
 static inline const char* BtmGetDefaultName()
 {
