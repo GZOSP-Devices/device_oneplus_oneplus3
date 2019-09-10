@@ -445,7 +445,7 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-service
 
 # Telephony
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     ims-ext-common \
     telephony-ext
 
