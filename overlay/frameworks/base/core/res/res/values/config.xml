@@ -438,4 +438,7 @@
          during initialization when the setting is still null. -->
     <bool name="config_dozeAlwaysOnEnabled">false</bool>
 
+    <!-- Dash Charging -->
+    <bool name="config_hasDashCharger">true</bool>
+
 </resources>
