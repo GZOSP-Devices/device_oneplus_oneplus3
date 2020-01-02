@@ -447,4 +447,12 @@
     <!-- Button backlight. -->
     <bool name="config_button_brightness_support">true</bool>
     <integer name="config_button_brightness_default">145</integer>
+
+    <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
+         autodetected from the Configuration. -->
+    <bool name="config_showNavigationBar">true</bool>
+
+    <!-- Enable system navigation keys. -->
+    <bool name="config_supportSystemNavigationKeys">true</bool>
+
 </resources>
