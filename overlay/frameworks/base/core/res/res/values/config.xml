@@ -444,6 +444,12 @@
     <!-- Dash Charging -->
     <bool name="config_hasDashCharger">true</bool>
 
+    <!-- The CPU temperature sensor path, defaults to empty -->
+    <string name="config_cpuTempSensor" translatable="false">/sys/class/thermal/thermal_zone0/temp</string>
+
+    <!-- The CPU temperature divider, if needed -->
+    <integer name="config_cpuTempDivider" translatable="false">1000</integer>
+
     <!-- Button backlight. -->
     <bool name="config_button_brightness_support">true</bool>
     <integer name="config_button_brightness_default">145</integer>
