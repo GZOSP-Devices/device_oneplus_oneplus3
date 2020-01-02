@@ -16,8 +16,11 @@
 package com.slim.device;
 
 import android.app.Activity;
+import android.app.KeyguardManager;
 import android.app.NotificationManager;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.SharedPreferences;
 import android.hardware.Sensor;
@@ -29,15 +32,20 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
+import android.os.SystemClock;
 import android.os.SystemProperties;
+import android.os.UserHandle;
 import android.os.Vibrator;
+import android.provider.MediaStore;
 import android.provider.Settings;
+import android.service.notification.ZenModeConfig;
 import android.util.Log;
 import android.view.KeyEvent;
 
 import android.service.notification.ZenModeConfig;
 
 import com.slim.device.settings.ScreenOffGesture;
+import com.slim.device.settings.SliderSettings;
 
 import com.android.internal.os.DeviceKeyHandler;
 import com.android.internal.util.ArrayUtils;
@@ -48,14 +56,15 @@ public class KeyHandler implements DeviceKeyHandler {
 
     private static final String TAG = KeyHandler.class.getSimpleName();
     private static final int GESTURE_REQUEST = 1;
+    private static final int GESTURE_WAKELOCK_DURATION = 2000;
 
     // Supported scancodes
     private static final int GESTURE_CIRCLE_SCANCODE = 250;
     private static final int GESTURE_SWIPE_DOWN_SCANCODE = 251;
-    private static final int GESTURE_V_SCANCODE = 252;
+    private static final int GESTURE_V_UP_SCANCODE = 252;
     private static final int GESTURE_LTR_SCANCODE = 253;
     private static final int GESTURE_GTR_SCANCODE = 254;
-    private static final int GESTURE_V_UP_SCANCODE = 255;
+    private static final int GESTURE_V_SCANCODE = 255;
     // Slider
     private static final int MODE_TOTAL_SILENCE = 600;
     private static final int MODE_ALARMS_ONLY = 601;
@@ -63,6 +72,9 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int MODE_NONE = 603;
     private static final int MODE_VIBRATE = 604;
     private static final int MODE_RING = 605;
+
+    private static final String ACTION_DISMISS_KEYGUARD =
+            "com.android.keyguard.action.DISMISS_KEYGUARD_SECURELY";
 
     private static final int[] sSupportedGestures = new int[]{
         GESTURE_CIRCLE_SCANCODE,
@@ -85,9 +97,11 @@ public class KeyHandler implements DeviceKeyHandler {
     private final NotificationManager mNotificationManager;
     private Context mGestureContext = null;
     private EventHandler mEventHandler;
+    private KeyguardManager mKeyguardManager;
     private SensorManager mSensorManager;
     private Sensor mProximitySensor;
     private Vibrator mVibrator;
+    private WakeLock mGestureWakeLock;
     WakeLock mProximityWakeLock;
 
     public KeyHandler(Context context) {
@@ -99,6 +113,8 @@ public class KeyHandler implements DeviceKeyHandler {
                 = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         mSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
         mProximitySensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+        mGestureWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
+                "GestureWakeLock");
         mProximityWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
                 "ProximityWakeLock");
 
@@ -119,12 +135,21 @@ public class KeyHandler implements DeviceKeyHandler {
         public void handleMessage(Message msg) {
             KeyEvent event = (KeyEvent) msg.obj;
             String action = null;
-            switch(event.getScanCode()) {
+            switch(event.getScanCode()){
             case GESTURE_CIRCLE_SCANCODE:
-                action = getGestureSharedPreferences()
-                        .getString(ScreenOffGesture.PREF_GESTURE_CIRCLE,
-                        ActionConstants.ACTION_CAMERA);
-                        doHapticFeedback();
+                ensureKeyguardManager();
+                mGestureWakeLock.acquire(GESTURE_WAKELOCK_DURATION);
+                if (mKeyguardManager.isKeyguardSecure() && mKeyguardManager.isKeyguardLocked()) {
+                    action = MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA_SECURE;
+                } else {
+                    mContext.sendBroadcastAsUser(new Intent(ACTION_DISMISS_KEYGUARD),
+                            UserHandle.CURRENT);
+                    action = MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA;
+                }
+                mPowerManager.wakeUp(SystemClock.uptimeMillis(), "wakeup-gesture");
+                Intent intent = new Intent(action, null);
+                startActivitySafely(intent);
+                doHapticFeedback();
                 break;
             case GESTURE_SWIPE_DOWN_SCANCODE:
                 action = getGestureSharedPreferences()
@@ -163,8 +188,8 @@ public class KeyHandler implements DeviceKeyHandler {
                 setZenMode(Settings.Global.ZEN_MODE_ALARMS);
                 break;
             case MODE_PRIORITY_ONLY:
-                setZenMode(Settings.Global.ZEN_MODE_IMPORTANT_INTERRUPTIONS);
                 setRingerModeInternal(AudioManager.RINGER_MODE_NORMAL);
+                setZenMode(Settings.Global.ZEN_MODE_IMPORTANT_INTERRUPTIONS);
                 break;
             case MODE_NONE:
                 setZenMode(Settings.Global.ZEN_MODE_OFF);
@@ -208,6 +233,26 @@ public class KeyHandler implements DeviceKeyHandler {
             return;
         }
             mVibrator.vibrate(50);
+    }
+
+    private void ensureKeyguardManager() {
+        if (mKeyguardManager == null) {
+            mKeyguardManager =
+                    (KeyguardManager) mContext.getSystemService(Context.KEYGUARD_SERVICE);
+        }
+    }
+
+    private void startActivitySafely(Intent intent) {
+        intent.addFlags(
+                Intent.FLAG_ACTIVITY_NEW_TASK
+                | Intent.FLAG_ACTIVITY_SINGLE_TOP
+                | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        try {
+            UserHandle user = new UserHandle(UserHandle.USER_CURRENT);
+            mContext.startActivityAsUser(intent, null, user);
+        } catch (ActivityNotFoundException e) {
+            // Ignore
+        }
     }
 
     private SharedPreferences getGestureSharedPreferences() {

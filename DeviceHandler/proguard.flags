@@ -1,5 +1,10 @@
 -keep public class com.slim.device.KeyHandler
 
+# Keep keyhandler constructor
+-keep public class * implements com.android.internal.os.DeviceKeyHandler {
+    public <init>(android.content.Context);
+}
+
 -keepclassmembers public class com.slim.device.KeyHandler {
     *;
 }

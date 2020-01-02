@@ -46,7 +46,7 @@ public final class KernelControl {
 
     private static String[] GESTURE_CONTROL_NODES = {
             GESTURE_CAMERA,
-            GESTURE_FLASHLIGHT ,
+            GESTURE_FLASHLIGHT,
             GESTURE_MEDIA,
             GESTURE_MEDIA_PREVIOUS,
             GESTURE_MEDIA_NEXT,
