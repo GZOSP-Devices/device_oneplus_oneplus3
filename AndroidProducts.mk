@@ -14,7 +14,7 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/validus_oneplus3.mk
+    $(LOCAL_DIR)/tipsy_oneplus3.mk
 
 COMMON_LUNCH_CHOICES := \
-    validus_oneplus3-userdebug
+    tipsy_oneplus3-userdebug
