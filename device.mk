@@ -252,12 +252,12 @@ PRODUCT_PACKAGES += \
     qdcm_calib_data_samsung_s6e3fa5_1080p_cmd_mode_dsi_panel.xml
 
 # DevicHandler
-PRODUCT_PACKAGES += \
-	DeviceHandler
+#PRODUCT_PACKAGES += \
+	#DeviceHandler
 
 # Doze mode
-PRODUCT_PACKAGES += \
-    OneplusDoze
+#PRODUCT_PACKAGES += \
+    #OneplusDoze
 
 # DRM
 PRODUCT_PACKAGES += \
