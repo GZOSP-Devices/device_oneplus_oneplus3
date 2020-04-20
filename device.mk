@@ -255,8 +255,8 @@ PRODUCT_PACKAGES += \
 	#DeviceHandler
 
 # Doze mode
-#PRODUCT_PACKAGES += \
-    #OneplusDoze
+PRODUCT_PACKAGES += \
+    OneplusDoze
 
 # DRM
 PRODUCT_PACKAGES += \
