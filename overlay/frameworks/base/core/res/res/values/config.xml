@@ -481,4 +481,13 @@
     <!-- Whether the display blanks itself when transitioning from a doze to a non-doze state -->
     <bool name="config_displayBlanksAfterDoze">true</bool>
 
+    <!-- Is the battery LED intrusive? -->
+    <bool name="config_intrusiveBatteryLed">true</bool>
+
+    <!-- Does the battery LED support multiple colors? -->
+    <bool name="config_multiColorBatteryLed">true</bool>
+
+    <!-- Do the battery/notification LEDs support pulsing? -->
+    <bool name="config_ledCanPulse">true</bool>
+
 </resources>
