@@ -20,8 +20,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from oneplus3 device
 $(call inherit-product, device/oneplus/oneplus3/device.mk)
 
-# Inherit some common tipsy stuff.
-$(call inherit-product, vendor/tipsy/config/common_full_phone.mk)
+# Inherit some common Tipsy stuff.
+$(call inherit-product, vendor/tipsy/config/common.mk)
+$(call inherit-product, vendor/tipsy/config/gsm.mk)
 
 # Vendor security patch level
 VENDOR_SECURITY_PATCH := 2019-04-01
