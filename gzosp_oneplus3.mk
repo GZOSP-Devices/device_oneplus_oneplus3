@@ -21,13 +21,13 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/oneplus/oneplus3/device.mk)
 
 # Inherit some common Tipsy stuff.
-$(call inherit-product, vendor/tipsy/config/common.mk)
-$(call inherit-product, vendor/tipsy/config/gsm.mk)
+$(call inherit-product, vendor/gzosp/config/common.mk)
+$(call inherit-product, vendor/gzosp/config/gsm.mk)
 
 # Vendor security patch level
 VENDOR_SECURITY_PATCH := 2019-04-01
 
-PRODUCT_NAME := tipsy_oneplus3
+PRODUCT_NAME := gzosp_oneplus3
 PRODUCT_DEVICE := oneplus3
 PRODUCT_MODEL := Oneplus 3
 PRODUCT_MANUFACTURER := OnePlus
@@ -40,4 +40,4 @@ BUILD_FINGERPRINT := "OnePlus/OnePlus3/OnePlus3:9/PKQ1.181203.001/1907311932:use
 TARGET_VENDOR := oneplus
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.tipsy.maintainer="sparx"
+    ro.gzosp.maintainer="sparx"
