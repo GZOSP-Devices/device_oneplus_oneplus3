@@ -18,6 +18,7 @@ cc_library_static {
     name: "libinit_oneplus3",
     recovery_available: true,
     srcs: ["init_oneplus3.cpp"],
+    static_libs: ["fmtlib"],
     include_dirs: [
         "system/core/base/include",
         "system/core/init"
