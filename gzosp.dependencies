@@ -3,13 +3,13 @@
     "remote": "gh",
     "repository": "GZR-Kernels/kernel_oneplus_msm8996",
     "target_path": "kernel/oneplus/msm8996",
-    "revision": "10.0"
+    "revision": "11.0"
   },
   {
     "remote": "gh",
     "repository": "BigTopKrazies/proprietary_vendor_oneplus",
     "target_path": "vendor/oneplus",
-    "revision": "10.0"
+    "revision": "11.0"
   },
   {
     "remote": "lineage",
