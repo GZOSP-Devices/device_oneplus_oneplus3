@@ -20,14 +20,16 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from oneplus3 device
 $(call inherit-product, device/oneplus/oneplus3/device.mk)
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common Gzosp stuff.
+$(call inherit-product, vendor/gzosp/config/common.mk)
+$(call inherit-product, vendor/gzosp/config/gsm.mk)
 
 # Vendor security patch level
 VENDOR_SECURITY_PATCH := 2019-10-01
 
-PRODUCT_NAME := lineage_oneplus3
+PRODUCT_NAME := gzosp_oneplus3
 PRODUCT_DEVICE := oneplus3
+PRODUCT_MODEL := Oneplus 3
 PRODUCT_MANUFACTURER := OnePlus
 PRODUCT_BRAND := OnePlus
 
