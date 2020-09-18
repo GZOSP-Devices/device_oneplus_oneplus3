@@ -94,9 +94,10 @@ vidc.enc.dcvs.extra-buff-count=2
 # disable PQ feature by default
 vendor.vidc.enc.disable.pq=true
 
-#
+# Charger
+ro.charger.enable_suspend=true
+
 # system props for the data modules
-#
 ro.vendor.use_data_netmgrd=true
 persist.data.netmgrd.qos.enable=true
 persist.vendor.data.mode=concurrent
