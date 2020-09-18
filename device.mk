@@ -329,7 +329,6 @@ PRODUCT_PACKAGES += \
 
 # Lineage hardware
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.oneplus3 \
     vendor.lineage.trust@1.0-service
 
 # Media
