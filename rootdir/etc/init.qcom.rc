@@ -627,7 +627,7 @@ service vendor.move_wifi_data /system/bin/move_wifi_data.sh
     oneshot
 
 service wigignpt /vendor/bin/wigignpt
-    interface vendor.qti.hardware.wigig.netperftuner@1.0::INetPerfTuner default
+#    interface vendor.qti.hardware.wigig.netperftuner@1.0::INetPerfTuner default
     class hal
     socket wigig/wigignpt stream 660 system wifi
     user system
@@ -780,7 +780,7 @@ service vendor.atfwd /vendor/bin/ATFWD-daemon
     writepid /dev/cpuset/system-background/tasks
 
 service hostapd_fst /vendor/bin/hw/hostapd -dd -g /data/vendor/wifi/hostapd/global
-    interface android.hardware.wifi.hostapd@1.0::IHostapd default
+#    interface android.hardware.wifi.hostapd@1.0::IHostapd default
     class main
     capabilities NET_ADMIN NET_RAW
     user wifi
@@ -946,7 +946,6 @@ service esepmdaemon /system/vendor/bin/esepmdaemon
 
 on charger
     setprop persist.sys.usb.config mass_storage
-    load_system_props
     start qcom-post-boot
 
 #add poweroffhandler
