@@ -16,11 +16,5 @@
     "target_path": "packages/resources/devicesettings-customs",
     "branch": "ten",
     "remote": "github"
-  },
-  {
-    "repository": "Gaurav241/packages_apps_GoogleCamera_oneplus3",
-    "target_path": "packages/apps/GoogleCamera",
-    "branch": "Android-10.0",
-    "remote": "github"
   }
 ]
