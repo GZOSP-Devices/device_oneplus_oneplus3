@@ -29,7 +29,7 @@ PRODUCT_NAME := arrow_oneplus3
 PRODUCT_DEVICE := oneplus3
 PRODUCT_MANUFACTURER := OnePlus
 PRODUCT_BRAND := OnePlus
-
+PRODUCT_MODEL := OnePlus 3/3T
 DEVICE_MAINTAINER := Gaurav24
 
 # Boot animation
