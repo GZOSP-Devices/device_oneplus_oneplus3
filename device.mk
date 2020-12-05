@@ -578,6 +578,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/move_wifi_data.sh:system/bin/move_wifi_data.sh \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
 
+# Tetheroffload
+PRODUCT_PACKAGES += \
+    android.hardware.tetheroffload.config@1.0 \
+    android.hardware.tetheroffload.control@1.0
+
 # WiFi Display
 PRODUCT_PACKAGES += \
     libaacwrapper \
