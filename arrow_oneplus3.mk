@@ -20,14 +20,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from oneplus3 device
 $(call inherit-product, device/oneplus/oneplus3/device.mk)
 
-# Inherit some common PixelExperience stuff.
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
-TARGET_GAPPS_ARCH := arm64
-IS_PHONE := true
+# Inherit some common ArrowOS stuff.
+ $(call inherit-product, vendor/arrow/config/common.mk)
 
 # Vendor security patch level
 VENDOR_SECURITY_PATCH := 2019-10-01
-PRODUCT_NAME := aosp_oneplus3
+PRODUCT_NAME := arrow_oneplus3
 PRODUCT_DEVICE := oneplus3
 PRODUCT_MANUFACTURER := OnePlus
 PRODUCT_BRAND := OnePlus
