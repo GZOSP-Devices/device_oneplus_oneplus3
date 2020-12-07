@@ -340,8 +340,8 @@ PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.oneplus3
 
 # LiveDisplay
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service.oneplus3
+#PRODUCT_PACKAGES += \
+#    vendor.lineage.livedisplay@2.0-service.oneplus3
 
 # Media
 PRODUCT_COPY_FILES += \
